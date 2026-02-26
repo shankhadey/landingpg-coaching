@@ -1,0 +1,970 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Career & Leadership Coaching — Shankha Dey</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Syne:wght@400;500;700&family=DM+Sans:wght@300;400&display=swap" rel="stylesheet">
+
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --ink:     #08080a;
+  --paper:   #f0ece4;
+  --cream:   #e8e2d6;
+  --gold:    #b89a5a;
+  --gold-lt: rgba(184,154,90,.18);
+  --rust:    #b84a2e;
+  --dim:     #7a7468;
+  --border:  rgba(184,154,90,.22);
+  --card:    #0f0e0b;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--ink);
+  color: var(--paper);
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 300;
+  overflow-x: hidden;
+}
+
+body::after {
+  content: '';
+  position: fixed; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)' opacity='0.035'/%3E%3C/svg%3E");
+  pointer-events: none; z-index: 9000; opacity: .5;
+}
+
+/* NAV */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 500;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 16px 48px;
+  background: rgba(8,8,10,.88);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--border);
+}
+.nav-logo {
+  font-family: 'Syne', sans-serif;
+  font-weight: 700;
+  font-size: .82rem;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--paper);
+}
+.nav-logo span { color: var(--gold); }
+.nav-cta {
+  background: transparent;
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  font-family: 'Syne', sans-serif;
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  padding: 10px 24px;
+  text-decoration: none;
+  transition: background .2s, color .2s, transform .15s;
+}
+.nav-cta:hover { background: var(--gold); color: var(--ink); transform: translateY(-1px); }
+
+/* HERO */
+.hero {
+  min-height: 100vh;
+  padding: 140px 48px 100px;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 460px;
+  gap: 80px;
+  align-items: center;
+}
+
+.hero-tag {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-family: 'Syne', sans-serif;
+  font-size: .68rem; font-weight: 700;
+  letter-spacing: .22em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 32px;
+}
+.hero-tag::before { content: ''; width: 28px; height: 1px; background: var(--gold); }
+
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 900;
+  font-size: clamp(3.2rem, 6vw, 6rem);
+  line-height: 1.0;
+  letter-spacing: -.01em;
+  margin-bottom: 32px;
+}
+.hero h1 .italic { font-style: italic; color: var(--gold); display: block; }
+.hero h1 .normal { display: block; }
+
+.hero-sub {
+  font-size: 1rem;
+  line-height: 1.85;
+  color: rgba(240,236,228,.6);
+  max-width: 520px;
+  margin-bottom: 44px;
+}
+.hero-sub strong { color: var(--paper); font-weight: 400; }
+
+.hero-proof {
+  display: flex; align-items: center; gap: 28px;
+  padding: 22px 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 44px;
+}
+.proof-item { display: flex; flex-direction: column; gap: 3px; }
+.proof-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem; font-weight: 700;
+  color: var(--gold); line-height: 1;
+}
+.proof-label {
+  font-family: 'Syne', sans-serif;
+  font-size: .6rem; font-weight: 500;
+  letter-spacing: .12em; text-transform: uppercase;
+  color: var(--dim);
+}
+.proof-sep { width: 1px; height: 36px; background: var(--border); flex-shrink: 0; }
+
+.cta-row { display: flex; align-items: center; gap: 20px; }
+.btn-primary {
+  background: var(--gold); color: var(--ink);
+  font-family: 'Syne', sans-serif;
+  font-size: .75rem; font-weight: 700;
+  letter-spacing: .14em; text-transform: uppercase;
+  padding: 16px 32px; text-decoration: none;
+  border: none; cursor: pointer;
+  transition: background .2s, transform .15s;
+  display: inline-block;
+}
+.btn-primary:hover { background: var(--cream); transform: translateY(-2px); }
+.hero-note { font-size: .78rem; color: var(--dim); }
+
+/* HERO CARD */
+.hero-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  padding: 40px; position: relative;
+}
+.hero-card::before {
+  content: ''; position: absolute;
+  top: -1px; left: 40px; right: 40px; height: 2px;
+  background: var(--gold);
+}
+.card-corner {
+  position: absolute; width: 20px; height: 20px;
+}
+.card-corner.tl { top: -1px; right: -1px; border-top: 2px solid var(--gold); border-right: 2px solid var(--gold); }
+.card-corner.br { bottom: -1px; left: -1px; border-bottom: 2px solid rgba(184,154,90,.4); border-left: 2px solid rgba(184,154,90,.4); }
+
+.card-photo-wrap {
+  margin-bottom: 20px;
+}
+.card-photo {
+  width: 72px; height: 72px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center top;
+  border: 2px solid var(--gold);
+  display: block;
+}
+
+.card-qmark {
+  font-family: 'Playfair Display', serif;
+  font-size: 5rem; line-height: 1;
+  color: var(--gold-lt); margin-bottom: -16px; display: block;
+}
+.card-quote {
+  font-family: 'Playfair Display', serif;
+  font-style: italic; font-size: 1.12rem; line-height: 1.65;
+  color: var(--paper); margin-bottom: 28px;
+}
+.card-divider { width: 100%; height: 1px; background: var(--border); margin-bottom: 24px; }
+.card-bio-label {
+  font-family: 'Syne', sans-serif; font-size: .6rem; font-weight: 700;
+  letter-spacing: .2em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px;
+}
+.bio-line { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 10px; }
+.bio-dot { width: 4px; height: 4px; background: var(--gold); border-radius: 50%; flex-shrink: 0; margin-top: 7px; }
+.bio-text { font-size: .83rem; line-height: 1.6; color: rgba(240,236,228,.6); }
+.bio-text strong { color: var(--paper); font-weight: 400; }
+
+/* BAND */
+.band {
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 18px 48px;
+}
+.band-inner {
+  max-width: 1200px; margin: 0 auto;
+  display: flex; gap: 40px; align-items: center; flex-wrap: wrap;
+}
+.band-item {
+  font-family: 'Syne', sans-serif; font-size: .66rem; font-weight: 700;
+  letter-spacing: .18em; text-transform: uppercase; color: var(--dim); white-space: nowrap;
+}
+.band-item span { color: var(--gold); }
+.band-sep { color: var(--border); }
+
+/* SECTION */
+.section { max-width: 1200px; margin: 0 auto; padding: 100px 48px; }
+.section-eyebrow {
+  display: flex; align-items: center; gap: 14px;
+  font-family: 'Syne', sans-serif; font-size: .66rem; font-weight: 700;
+  letter-spacing: .22em; text-transform: uppercase; color: var(--gold); margin-bottom: 52px;
+}
+.section-eyebrow::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+
+/* PROBLEM */
+.problem-layout {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start;
+}
+.problem-heading {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.9rem, 3.2vw, 2.8rem);
+  line-height: 1.2; font-weight: 700; margin-bottom: 28px;
+}
+.problem-heading em { font-style: italic; color: var(--gold); }
+.problem-body { font-size: .93rem; line-height: 1.85; color: rgba(240,236,228,.6); }
+.problem-body p { margin-bottom: 16px; }
+.problem-body p:last-child { margin-bottom: 0; }
+.problem-body strong { color: var(--paper); font-weight: 400; }
+
+.symptom-list { display: flex; flex-direction: column; gap: 2px; }
+.symptom {
+  display: flex; align-items: flex-start; gap: 16px;
+  padding: 18px 20px; background: var(--card);
+  border-left: 2px solid transparent; transition: border-color .2s;
+}
+.symptom:hover { border-color: var(--gold); }
+.symptom-num {
+  font-family: 'Syne', sans-serif; font-size: .63rem; font-weight: 700;
+  color: var(--gold); letter-spacing: .1em; flex-shrink: 0; margin-top: 2px;
+}
+.symptom-text { font-size: .86rem; line-height: 1.6; color: rgba(240,236,228,.6); }
+.symptom-text strong { color: var(--paper); font-weight: 400; }
+
+/* MOVES */
+.moves-intro { max-width: 660px; margin-bottom: 60px; }
+.moves-intro h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.9rem, 3.2vw, 2.8rem);
+  line-height: 1.15; font-weight: 700; margin-bottom: 18px;
+}
+.moves-intro h2 em { font-style: italic; color: var(--gold); }
+.moves-intro p { font-size: .93rem; line-height: 1.85; color: rgba(240,236,228,.6); }
+
+.moves-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 2px; background: rgba(184,154,90,.1);
+}
+.move-card {
+  background: var(--ink); padding: 44px 40px;
+  position: relative; overflow: hidden; transition: background .25s;
+}
+.move-card:hover { background: #0f0e0b; }
+.move-index {
+  font-family: 'Playfair Display', serif; font-size: 5rem; font-weight: 900;
+  color: rgba(184,154,90,.06); position: absolute; top: 12px; right: 24px;
+  line-height: 1; pointer-events: none;
+}
+.move-tag {
+  font-family: 'Syne', sans-serif; font-size: .62rem; font-weight: 700;
+  letter-spacing: .18em; text-transform: uppercase; color: var(--gold); margin-bottom: 12px;
+}
+.move-title {
+  font-family: 'Playfair Display', serif; font-size: 1.25rem;
+  font-weight: 700; line-height: 1.25; color: var(--paper); margin-bottom: 12px;
+}
+.move-body { font-size: .85rem; line-height: 1.75; color: rgba(240,236,228,.55); }
+.move-body strong { color: rgba(240,236,228,.85); font-weight: 400; }
+
+/* PULLQUOTE */
+.pq-band {
+  background: #0c0b08;
+  border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+  padding: 80px 48px;
+}
+.pq-inner { max-width: 880px; margin: 0 auto; text-align: center; }
+.pq-text {
+  font-family: 'Playfair Display', serif; font-style: italic;
+  font-size: clamp(1.4rem, 2.8vw, 2.3rem); line-height: 1.4; color: var(--paper); margin-bottom: 22px;
+}
+.pq-text em { color: var(--gold); font-style: normal; }
+.pq-attr {
+  font-family: 'Syne', sans-serif; font-size: .64rem;
+  letter-spacing: .16em; text-transform: uppercase; color: var(--dim);
+}
+
+/* FOR SECTION */
+.for-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 2px; background: rgba(184,154,90,.1);
+}
+.for-card {
+  background: var(--ink); padding: 36px 28px; transition: background .25s;
+}
+.for-card:hover { background: var(--card); }
+.for-icon {
+  font-family: 'Playfair Display', serif; font-size: 1.8rem;
+  font-style: italic; color: var(--gold); margin-bottom: 14px; line-height: 1;
+}
+.for-title {
+  font-family: 'Syne', sans-serif; font-size: .75rem; font-weight: 700;
+  letter-spacing: .1em; text-transform: uppercase; color: var(--paper); margin-bottom: 10px;
+}
+.for-body { font-size: .82rem; line-height: 1.7; color: var(--dim); }
+
+/* PROCESS */
+.process-intro { max-width: 660px; margin-bottom: 60px; }
+.process-heading {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.9rem, 3.2vw, 2.8rem);
+  line-height: 1.15; font-weight: 700; margin-bottom: 16px;
+}
+.process-heading em { font-style: italic; color: var(--gold); }
+.process-sub { font-size: .95rem; line-height: 1.85; color: rgba(240,236,228,.6); }
+
+.process-steps { display: flex; flex-direction: column; gap: 2px; }
+
+.process-step {
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  gap: 0;
+  background: var(--card);
+  border-left: 2px solid transparent;
+  transition: border-color .2s, background .2s;
+}
+.process-step:hover { border-color: var(--gold); background: #131108; }
+
+.step-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.2rem; font-weight: 900;
+  color: rgba(184,154,90,.2);
+  padding: 32px 0 32px 28px;
+  line-height: 1;
+  flex-shrink: 0;
+  align-self: start;
+  padding-top: 34px;
+}
+
+.step-content {
+  padding: 32px 36px 32px 24px;
+  border-left: 1px solid var(--border);
+}
+
+.step-title {
+  font-family: 'Syne', sans-serif;
+  font-size: .82rem; font-weight: 700;
+  letter-spacing: .08em; text-transform: uppercase;
+  color: var(--paper); margin-bottom: 10px;
+}
+
+.step-body {
+  font-size: .88rem; line-height: 1.78;
+  color: rgba(240,236,228,.55);
+}
+
+/* PROCESS */
+.form-wrapper {
+  max-width: 1200px; margin: 0 auto; padding: 100px 48px;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 100px; align-items: start;
+}
+.form-left h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.2rem, 4vw, 3.4rem);
+  font-weight: 900; line-height: 1.05; margin-bottom: 24px;
+}
+.form-left h2 em { font-style: italic; color: var(--gold); }
+.form-left p { font-size: .9rem; line-height: 1.85; color: rgba(240,236,228,.55); margin-bottom: 36px; }
+.form-signals { display: flex; flex-direction: column; gap: 14px; }
+.signal { display: flex; align-items: flex-start; gap: 12px; }
+.signal-dot { width: 5px; height: 5px; background: var(--gold); border-radius: 50%; flex-shrink: 0; margin-top: 6px; }
+.signal-text { font-size: .83rem; line-height: 1.65; color: rgba(240,236,228,.55); }
+.signal-text strong { color: var(--paper); font-weight: 400; }
+
+.signup-form { display: flex; flex-direction: column; }
+.field-group {
+  position: relative;
+  border-bottom: 1px solid rgba(184,154,90,.2);
+  transition: border-color .22s;
+}
+.field-group:first-child { border-top: 1px solid rgba(184,154,90,.2); }
+.field-group:focus-within { border-color: var(--gold); }
+.field-group label {
+  display: block; padding: 16px 0 0;
+  font-family: 'Syne', sans-serif; font-size: .6rem; font-weight: 700;
+  letter-spacing: .2em; text-transform: uppercase; color: var(--gold);
+}
+.field-group input,
+.field-group select,
+.field-group textarea {
+  width: 100%; background: transparent; border: none; outline: none;
+  color: var(--paper); font-family: 'DM Sans', sans-serif;
+  font-size: .92rem; font-weight: 300; padding: 6px 0 14px;
+  caret-color: var(--gold); -webkit-appearance: none; appearance: none;
+}
+.field-group select option { background: #1a1710; color: var(--paper); }
+.field-group textarea { resize: none; height: 76px; line-height: 1.65; }
+.field-group input::placeholder,
+.field-group textarea::placeholder { color: rgba(240,236,228,.18); }
+
+.submit-btn {
+  margin-top: 32px; width: 100%;
+  background: var(--gold); color: var(--ink); border: none; cursor: pointer;
+  font-family: 'Syne', sans-serif; font-size: .75rem; font-weight: 700;
+  letter-spacing: .16em; text-transform: uppercase; padding: 20px 36px;
+  transition: background .2s, transform .15s;
+}
+.submit-btn:hover { background: var(--cream); transform: translateY(-2px); }
+.submit-btn:active { transform: none; }
+.submit-btn:disabled { background: var(--dim); cursor: not-allowed; transform: none; }
+.form-small { margin-top: 14px; font-size: .7rem; color: var(--dim); text-align: center; line-height: 1.6; }
+.error-msg { display: none; margin-top: 12px; font-size: .78rem; color: #c94c2e; }
+.error-msg.visible { display: block; }
+
+/* Field-level validation */
+.field-error {
+  display: none;
+  font-size: .68rem;
+  color: #c94c2e;
+  font-family: 'Syne', sans-serif;
+  letter-spacing: .06em;
+  padding: 4px 0 10px;
+}
+.field-error.visible { display: block; }
+.field-group.invalid { border-color: #c94c2e !important; }
+.field-group.valid { border-color: rgba(90,154,100,.5); }
+.char-count {
+  font-size: .65rem;
+  color: var(--dim);
+  text-align: right;
+  padding: 2px 0 8px;
+  font-family: 'Syne', sans-serif;
+  letter-spacing: .06em;
+  transition: color .2s;
+}
+.char-count.warn { color: var(--gold); }
+.char-count.ok { color: rgba(90,184,100,.7); }
+
+.success-state { display: none; padding: 56px 40px; text-align: center; border: 1px solid var(--border); }
+.success-state.visible { display: block; }
+.success-headline { font-family: 'Playfair Display', serif; font-size: 1.8rem; font-style: italic; color: var(--gold); margin-bottom: 14px; }
+.success-body { font-size: .9rem; line-height: 1.75; color: var(--dim); }
+
+/* FOOTER */
+footer { border-top: 1px solid var(--border); padding: 28px 48px; }
+.footer-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; }
+footer span { font-family: 'Syne', sans-serif; font-size: .65rem; letter-spacing: .12em; text-transform: uppercase; color: var(--dim); }
+footer a { font-family: 'Syne', sans-serif; font-size: .65rem; letter-spacing: .12em; text-transform: uppercase; color: var(--gold); text-decoration: none; }
+footer a:hover { color: var(--paper); }
+
+/* ANIMATIONS */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.hero-content > * { opacity: 0; animation: fadeUp .65s ease forwards; }
+.hero-content > *:nth-child(1) { animation-delay: .08s; }
+.hero-content > *:nth-child(2) { animation-delay: .2s; }
+.hero-content > *:nth-child(3) { animation-delay: .32s; }
+.hero-content > *:nth-child(4) { animation-delay: .44s; }
+.hero-content > *:nth-child(5) { animation-delay: .56s; }
+.hero-card { opacity: 0; animation: fadeUp .8s .28s ease forwards; }
+
+/* RESPONSIVE */
+@media (max-width: 960px) {
+  nav { padding: 14px 20px; }
+  .hero { grid-template-columns: 1fr; padding: 110px 20px 60px; gap: 48px; }
+  .problem-layout { grid-template-columns: 1fr; gap: 48px; }
+  .moves-grid { grid-template-columns: 1fr; }
+  .for-grid { grid-template-columns: 1fr 1fr; }
+  .form-wrapper { grid-template-columns: 1fr; gap: 48px; padding: 60px 20px; }
+  .section { padding: 60px 20px; }
+  .band { padding: 16px 20px; }
+  .pq-band { padding: 60px 20px; }
+  footer { padding: 24px 20px; }
+}
+@media (max-width: 560px) {
+  .for-grid { grid-template-columns: 1fr; }
+  .hero-proof { flex-wrap: wrap; gap: 16px; }
+  .proof-sep { display: none; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <span class="nav-logo">Shankha <span>Dey</span></span>
+  <a href="#apply" class="nav-cta">Apply for Coaching</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-tag">Career &amp; Leadership Coaching</div>
+
+    <h1>
+      <span class="normal">Navigate the</span>
+      <span class="italic">complexity.</span>
+      <span class="normal">Make things</span>
+      <span class="normal">happen.</span>
+    </h1>
+
+    <p class="hero-sub">
+      Most career advice tells you to find stretch projects. I'll tell you to <strong>find the problems everyone else is running from.</strong> I've navigated Microsoft and Salesforce from the inside — not as a consultant, but as the person making the real calls. Let me show you how to move in organizations like that.
+    </p>
+
+    <div class="hero-proof">
+      <div class="proof-item">
+        <span class="proof-num">15+</span>
+        <span class="proof-label">Years in the arena</span>
+      </div>
+      <div class="proof-sep"></div>
+      <div class="proof-item">
+        <span class="proof-num">100M+</span>
+        <span class="proof-label">Users on my products</span>
+      </div>
+      <div class="proof-sep"></div>
+      <div class="proof-item">
+        <span class="proof-num">2</span>
+        <span class="proof-label">Platforms at scale</span>
+      </div>
+    </div>
+
+    <div class="cta-row">
+      <a href="#apply" class="btn-primary">Apply for Coaching</a>
+      <span class="hero-note">Small cohort or 1:1. I read every application.</span>
+    </div>
+  </div>
+
+  <div class="hero-card">
+    <div class="card-corner tl"></div>
+    <div class="card-corner br"></div>
+    <div class="card-photo-wrap">
+      <img src="headshot.jpg" alt="Shankha Dey" class="card-photo" onerror="this.parentElement.style.display='none'">
+    </div>
+    <span class="card-qmark">"</span>
+    <p class="card-quote">While others wait for clarity, I create it. While others avoid complexity, I become the bridge.</p>
+    <div class="card-divider"></div>
+    <div class="card-bio-label">Background</div>
+    <div class="bio-line">
+      <div class="bio-dot"></div>
+      <span class="bio-text"><strong>Microsoft</strong> — Built AI infrastructure that became Copilot. Bing, Teams, Cortana. 100M+ users.</span>
+    </div>
+    <div class="bio-line">
+      <div class="bio-dot"></div>
+      <span class="bio-text"><strong>Salesforce</strong> — Senior Director, Data Cloud. Leading AI/ML product for Agentforce.</span>
+    </div>
+    <div class="bio-line">
+      <div class="bio-dot"></div>
+      <span class="bio-text"><strong>Maven × Lenny</strong> — Instructor, The AI PM in the Wild series.</span>
+    </div>
+    <div class="bio-line">
+      <div class="bio-dot"></div>
+      <span class="bio-text"><strong>Columbia MS CS · UW MBA</strong> — Technical depth meets business instinct.</span>
+    </div>
+  </div>
+</section>
+
+<!-- BAND -->
+<div class="band">
+  <div class="band-inner">
+    <span class="band-item">Microsoft <span>Copilot</span></span>
+    <span class="band-sep">·</span>
+    <span class="band-item">Salesforce <span>Agentforce</span></span>
+    <span class="band-sep">·</span>
+    <span class="band-item">Maven <span>× Lenny</span></span>
+    <span class="band-sep">·</span>
+    <span class="band-item">Columbia <span>MS CS</span></span>
+    <span class="band-sep">·</span>
+    <span class="band-item">UW <span>MBA</span></span>
+  </div>
+</div>
+
+<!-- PROBLEM -->
+<section class="section">
+  <div class="section-eyebrow">The real problem</div>
+  <div class="problem-layout">
+    <div>
+      <h2 class="problem-heading">You're good at your job.<br><em>The org is the obstacle.</em></h2>
+      <div class="problem-body">
+        <p>Most people get stuck not because they lack skills, but because they don't know how to create momentum inside a <strong>messy, political, ambiguous machine.</strong></p>
+        <p>They're waiting for permission. Waiting for clarity. Waiting for someone to notice. I stopped waiting early in my career — and it changed everything.</p>
+        <p>The org is a platform. Learn to wire into it the right way and you can ship ideas that seem impossible from the outside.</p>
+      </div>
+    </div>
+    <div class="symptom-list">
+      <div class="symptom">
+        <span class="symptom-num">01</span>
+        <span class="symptom-text">You do great work but <strong>promotions keep going to people who seem to know someone.</strong></span>
+      </div>
+      <div class="symptom">
+        <span class="symptom-num">02</span>
+        <span class="symptom-text">You're a Senior IC or Manager who <strong>can't break into the director conversation.</strong></span>
+      </div>
+      <div class="symptom">
+        <span class="symptom-num">03</span>
+        <span class="symptom-text">You have an idea that matters but <strong>can't get the right people to pay attention.</strong></span>
+      </div>
+      <div class="symptom">
+        <span class="symptom-num">04</span>
+        <span class="symptom-text">You're pivoting into tech and <strong>everyone keeps telling you to get more experience first.</strong></span>
+      </div>
+      <div class="symptom">
+        <span class="symptom-num">05</span>
+        <span class="symptom-text">You're a founder trying to navigate an enterprise deal <strong>without burning the relationship.</strong></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MOVES -->
+<section class="section" style="padding-top: 0;">
+  <div class="section-eyebrow">What we work on</div>
+  <div class="moves-intro">
+    <h2>Four unconventional moves<br>I actually used. <em>Still use.</em></h2>
+    <p>Not theory. These are the specific things I did — some deliberately, some by accident — that changed how I move through organizations. Now they're yours.</p>
+  </div>
+  <div class="moves-grid">
+    <div class="move-card">
+      <div class="move-index">1</div>
+      <div class="move-tag">Ownership</div>
+      <div class="move-title">Pick up the problems nobody wants</div>
+      <div class="move-body">Most people look for the cleanest stretch project. I learned early to find the <strong>messy, undefined, systemic problems</strong> quietly blocking everyone — and just start solving them. No permission required. That's where compounding leverage lives.</div>
+    </div>
+    <div class="move-card">
+      <div class="move-index">2</div>
+      <div class="move-tag">Translation</div>
+      <div class="move-title">Become the human API</div>
+      <div class="move-body">I stopped thinking of cross-functional work as collaboration and started thinking of myself as the <strong>API between teams.</strong> Translate, surface hidden connections, wire together what looks like separate problems. That's where real influence lives — not in the org chart.</div>
+    </div>
+    <div class="move-card">
+      <div class="move-index">3</div>
+      <div class="move-tag">Presence</div>
+      <div class="move-title">Build emotional range like a skill</div>
+      <div class="move-body">To handle ambiguity, tension, and pushback, I took acting classes and learned the <strong>Meisner technique.</strong> Staying present under pressure — in rooms where people are posturing or conflict is high — is learnable. Most high performers never work on it. That's your edge.</div>
+    </div>
+    <div class="move-card">
+      <div class="move-index">4</div>
+      <div class="move-tag">Posture</div>
+      <div class="move-title">Act like a peer. Now — not after the promotion.</div>
+      <div class="move-body">I stopped waiting for a title change to <strong>show up as an equal</strong> in rooms with senior leaders. Bold questions. Honest pushback. Influence doesn't come after the promotion — it comes before it. That's the actual mechanism most people miss.</div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="section" style="padding-top: 0;">
+  <div class="section-eyebrow">How it works</div>
+  <div class="process-intro">
+    <h2 class="process-heading">No fixed program.<br><em>No arbitrary end date.</em></h2>
+    <p class="process-sub">You stay until you've hit what you came for — or until you decide you're done. Most coaching programs end on someone else's schedule. This one ends on yours.</p>
+  </div>
+  <div class="process-steps">
+    <div class="process-step">
+      <div class="step-num">01</div>
+      <div class="step-content">
+        <div class="step-title">You apply. I read it.</div>
+        <div class="step-body">Every application comes to me directly. If there's a fit, I'll reach out within 48 hours to set up a short discovery call — no formal interview, just a real conversation to understand where you are and what you're trying to move.</div>
+      </div>
+    </div>
+    <div class="process-step">
+      <div class="step-num">02</div>
+      <div class="step-content">
+        <div class="step-title">We define what "done" looks like</div>
+        <div class="step-body">Before we start, we get specific. Not "I want to be a better leader" — but "I want to be in a director role within 9 months" or "I want to ship this product and have a clear story for my next move." Vague goals produce vague results.</div>
+      </div>
+    </div>
+    <div class="process-step">
+      <div class="step-num">03</div>
+      <div class="step-content">
+        <div class="step-title">1:1 video sessions, charged by the hour</div>
+        <div class="step-body">We meet when it's useful — not on a fixed weekly cadence for the sake of it. Sessions are focused, direct, and built around what's actually happening in your work right now. No recycled frameworks. No homework for homework's sake.</div>
+      </div>
+    </div>
+    <div class="process-step">
+      <div class="step-num">04</div>
+      <div class="step-content">
+        <div class="step-title">Async written feedback in between</div>
+        <div class="step-body">The real work happens between calls. Send me the doc you're about to present to leadership, the email you're unsure about, the decision you're stuck on. I'll give you direct written feedback — the kind a trusted senior colleague gives, not a consultant covering their bases.</div>
+      </div>
+    </div>
+    <div class="process-step">
+      <div class="step-num">05</div>
+      <div class="step-content">
+        <div class="step-title">You leave when you're ready</div>
+        <div class="step-body">No contracts, no minimum commitments, no upsell to the next tier. When you've hit your objective — or when you feel like you have what you need to keep going on your own — we're done. The goal is your independence, not your dependency.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PULLQUOTE -->
+<div class="pq-band">
+  <div class="pq-inner">
+    <p class="pq-text">Most career advice comes from people who've read about careers. I've been in <em>the actual rooms</em> — at Microsoft and Salesforce — where the real decisions get made.</p>
+    <p class="pq-attr">Shankha Dey  ·  Senior Director PM, Salesforce Data Cloud  ·  Ex-Microsoft</p>
+  </div>
+</div>
+
+<!-- WHO THIS IS FOR -->
+<section class="section">
+  <div class="section-eyebrow">Who this is for</div>
+  <div class="for-grid">
+    <div class="for-card">
+      <div class="for-icon">→</div>
+      <div class="for-title">PMs to Director/VP</div>
+      <div class="for-body">You've been a strong IC. You're ready to lead. The gap isn't skill — it's learning to operate at a different altitude inside a big org.</div>
+    </div>
+    <div class="for-card">
+      <div class="for-icon">→</div>
+      <div class="for-title">Pivoting into Tech</div>
+      <div class="for-body">You have real experience from another field. You need a credible path in that doesn't require starting over. Let's build it.</div>
+    </div>
+    <div class="for-card">
+      <div class="for-icon">→</div>
+      <div class="for-title">Senior ICs into Leadership</div>
+      <div class="for-body">You're deep in the craft. Now you need to learn how to move an organization — not just contribute to one.</div>
+    </div>
+    <div class="for-card">
+      <div class="for-icon">→</div>
+      <div class="for-title">Founders &amp; Operators</div>
+      <div class="for-body">You're building something real. You need someone who's been on both sides of the table — enterprise PM and startup builder.</div>
+    </div>
+  </div>
+</section>
+
+<!-- FORM -->
+<section id="apply" style="background: #0b0a07; border-top: 1px solid var(--border);">
+  <div class="form-wrapper">
+    <div class="form-left">
+      <div class="section-eyebrow">Apply</div>
+      <h2>Tell me<br>where you're<br><em>stuck.</em></h2>
+      <p>I take a small number of people at a time. No deck required. Just tell me honestly what's not working — I'll read every application personally and respond within 48 hours.</p>
+      <div class="form-signals">
+        <div class="signal">
+          <div class="signal-dot"></div>
+          <span class="signal-text"><strong>Small cohort.</strong> I keep it tight so the coaching is actually useful.</span>
+        </div>
+        <div class="signal">
+          <div class="signal-dot"></div>
+          <span class="signal-text"><strong>No homework before applying.</strong> Just answer honestly.</span>
+        </div>
+        <div class="signal">
+          <div class="signal-dot"></div>
+          <span class="signal-text"><strong>48-hour response.</strong> Every application. From me personally.</span>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <form class="signup-form" id="coachingForm" onsubmit="handleSubmit(event)">
+        <div class="field-group" id="fg-name">
+          <label for="name">Full Name</label>
+          <input type="text" id="name" name="name" placeholder="Your name" autocomplete="name">
+          <span class="field-error" id="err-name">Please enter your real name (letters only)</span>
+        </div>
+        <div class="field-group" id="fg-email">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="you@company.com" autocomplete="email">
+          <span class="field-error" id="err-email">Please enter a valid email address</span>
+        </div>
+        <div class="field-group" id="fg-role">
+          <label for="role">Current Role &amp; Company</label>
+          <input type="text" id="role" name="role" placeholder="e.g. Senior PM at Stripe">
+          <span class="field-error" id="err-role">Please be specific — at least 5 characters</span>
+        </div>
+        <div class="field-group" id="fg-goal">
+          <label for="goal">What are you trying to do?</label>
+          <select id="goal" name="goal">
+            <option value="" disabled selected>Choose one</option>
+            <option>Get to Director or VP level</option>
+            <option>Break into tech / product management</option>
+            <option>Transition from IC to leadership</option>
+            <option>Navigate a specific org challenge</option>
+            <option>Build visibility and get recognized</option>
+            <option>I'm a founder navigating enterprise</option>
+            <option>Something else</option>
+          </select>
+          <span class="field-error" id="err-goal">Please select an option</span>
+        </div>
+        <div class="field-group" id="fg-stuck">
+          <label for="stuck">What's actually blocking you?</label>
+          <textarea id="stuck" name="stuck" placeholder="Be specific. The more honest, the more useful." maxlength="1000"></textarea>
+          <div class="char-count" id="stuck-count">0 / 1000</div>
+          <span class="field-error" id="err-stuck">Please write at least 20 characters — the more honest, the better</span>
+        </div>
+        <div class="field-group" id="fg-linkedin">
+          <label for="linkedin">LinkedIn (optional)</label>
+          <input type="url" id="linkedin" name="linkedin" placeholder="https://linkedin.com/in/...">
+          <span class="field-error" id="err-linkedin">Must be a valid LinkedIn URL (linkedin.com/in/...)</span>
+        </div>
+        <button type="submit" class="submit-btn" id="submitBtn">Submit Application</button>
+        <div class="error-msg" id="errorMsg">Something went wrong. Please try again.</div>
+        <p class="form-small">No pitch decks. No spam. Your info goes to me and nowhere else.</p>
+      </form>
+      <div class="success-state" id="successState">
+        <div class="success-headline">Application received.</div>
+        <div class="success-body">I'll read this personally and get back to you within 48 hours.<br>Talk soon. — Shankha</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <span>© 2026 Shankha Dey</span>
+    <a href="https://linkedin.com/in/shankhasdey" target="_blank">LinkedIn →</a>
+  </div>
+</footer>
+
+<!--
+  GOOGLE SHEETS SETUP (one-time, ~5 min)
+  ════════════════════════════════════════
+  1. script.google.com → New Project
+  2. Paste into editor:
+
+    const SHEET_ID = 'YOUR_SHEET_ID_HERE';
+    function doPost(e) {
+      const sheet = SpreadsheetApp.openById(SHEET_ID).getActiveSheet();
+      const data = JSON.parse(e.postData.contents);
+      if (sheet.getLastRow() === 0) {
+        sheet.appendRow(['Timestamp','Name','Email','Role','Goal','Stuck','LinkedIn']);
+      }
+      sheet.appendRow([
+        new Date().toISOString(),
+        data.name||'', data.email||'', data.role||'',
+        data.goal||'', data.stuck||'', data.linkedin||''
+      ]);
+      return ContentService
+        .createTextOutput(JSON.stringify({status:'ok'}))
+        .setMimeType(ContentService.MimeType.JSON);
+    }
+
+  3. Deploy → New Deployment → Web App
+     Execute as: Me | Who has access: Anyone
+  4. Copy URL → paste as GAS_URL below
+-->
+<script>
+const GAS_URL = 'https://script.google.com/macros/s/AKfycbweqcclPf7i1q3PR7OpU1sRXxuveCc6tSoj-dNO2DrHPTe4X53VKsj4mluw0J9YOBFLzw/exec';
+
+// ── VALIDATORS ──────────────────────────────────────────
+const rules = {
+  name:     v => /^[a-zA-ZÀ-ÿ\s'\-\.]{2,60}$/.test(v.trim()),
+  email:    v => /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v.trim()),
+  role:     v => v.trim().length >= 5,
+  goal:     v => v !== '' && v !== null,
+  stuck:    v => v.trim().length >= 20,
+  linkedin: v => v.trim() === '' || /^https?:\/\/(www\.)?linkedin\.com\/in\/[a-zA-Z0-9\-_%]+\/?/.test(v.trim()),
+};
+
+function validate(id) {
+  const input = document.getElementById(id);
+  const group = document.getElementById('fg-' + id);
+  const err   = document.getElementById('err-' + id);
+  const val   = input.value;
+  const ok    = rules[id](val);
+
+  group.classList.toggle('invalid', !ok);
+  group.classList.toggle('valid', ok && val.trim() !== '');
+  if (err) err.classList.toggle('visible', !ok && val.trim() !== '');
+  return ok;
+}
+
+function validateAll() {
+  const fields = ['name','email','role','goal','stuck','linkedin'];
+  let allOk = true;
+  fields.forEach(id => {
+    const ok = validate(id);
+    if (!ok) {
+      // Show error on fields that are empty too
+      const err = document.getElementById('err-' + id);
+      if (err) err.classList.add('visible');
+      allOk = false;
+    }
+  });
+  return allOk;
+}
+
+// ── LIVE FEEDBACK ────────────────────────────────────────
+['name','email','role','goal','stuck','linkedin'].forEach(id => {
+  const el = document.getElementById(id);
+  el.addEventListener('blur', () => {
+    if (el.value.trim() !== '') validate(id);
+  });
+  el.addEventListener('input', () => {
+    const group = document.getElementById('fg-' + id);
+    if (group.classList.contains('invalid')) validate(id);
+  });
+});
+
+// Char counter for textarea
+const stuckEl = document.getElementById('stuck');
+const counter = document.getElementById('stuck-count');
+stuckEl.addEventListener('input', () => {
+  const len = stuckEl.value.length;
+  counter.textContent = len + ' / 1000';
+  counter.className = 'char-count' + (len >= 20 ? ' ok' : len > 5 ? ' warn' : '');
+});
+
+// ── SUBMIT ───────────────────────────────────────────────
+async function handleSubmit(e) {
+  e.preventDefault();
+
+  if (!validateAll()) {
+    // Scroll to first invalid field
+    const first = document.querySelector('.field-group.invalid');
+    if (first) first.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    return;
+  }
+
+  const btn     = document.getElementById('submitBtn');
+  const err     = document.getElementById('errorMsg');
+  const form    = document.getElementById('coachingForm');
+  const success = document.getElementById('successState');
+
+  err.classList.remove('visible');
+  btn.disabled = true;
+  btn.textContent = 'Sending…';
+
+  const payload = {
+    name:     document.getElementById('name').value.trim(),
+    email:    document.getElementById('email').value.trim(),
+    role:     document.getElementById('role').value.trim(),
+    goal:     document.getElementById('goal').value,
+    stuck:    document.getElementById('stuck').value.trim(),
+    linkedin: document.getElementById('linkedin').value.trim(),
+  };
+
+  try {
+    await fetch(GAS_URL, {
+      method: 'POST', mode: 'no-cors',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    });
+    form.style.display = 'none';
+    success.classList.add('visible');
+  } catch(ex) {
+    console.error(ex);
+    btn.disabled = false;
+    btn.textContent = 'Submit Application';
+    err.classList.add('visible');
+  }
+}
+
+document.querySelector('.nav-cta').addEventListener('click', function(e) {
+  e.preventDefault();
+  document.getElementById('apply').scrollIntoView({ behavior: 'smooth' });
+});
+</script>
+</body>
+</html>
